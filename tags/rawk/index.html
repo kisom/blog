@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Generator" content="BlazeBlogger 1.0.0">
+  <meta name="Date" content="Sat May  7 21:17:24 2011">
+  <link rel="stylesheet" href="../../default.css" type="text/css">
+  <link rel="alternate" href="../../index.rss" title="RSS Feed" type="application/rss+xml">
+  <title>Posts tagged as rawk</title>
+</head>
+
+<body>
+
+<div id="wrapper">
+  <div id="shadow">
+    <div id="heading">
+      <h1><a href="../../">It's All About the Kung-Fu</a></h1>
+      or How I Learned to Stop Worrying and Love My Green Belt
+    </div>
+
+    <div id="menu">
+      <ul>
+<li><a href="../../">Home</a></li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+<div class="section">Posts tagged as rawk</div>
+
+<h2 class="post"><a href="../../2011/02/23-rawk_released">rawk</a></h2>
+<div class="information">
+   <span class="date">2011-02-09</span> by <span class="author">kyle</span>, tagged as <span class="tags"><a href="../../tags/hacking">hacking</a>, <a href="../../tags/projects">projects</a>, <a href="../../tags/rawk">rawk</a></span>
+</div>
+<p>
+For a long time, building my personal site was painful, simply because I
+didn't need (or want) a large framework or dynamic content or anything
+fancy, just a few simple static pages. I was hand-writing them all, which
+meant that given how little I enjoyed doing that, pages weren't ever really
+getting updated and you can pretty much forget adding much in the way of new
+content. I decided to do something about this, and spent a week or two 
+writing <a href="http://rawk.brokenlcd.net">rawk</a>. </p>
+<p>
+rawk stands for 'rage against web frameworks' and what it does, in short, is
+take a tree of markdown files and converts them to html files, adding in
+headers, a site menu, and footers. <a href="http://www.kyleisom.net">My homepage</a> was
+done in rawk, as are a number of my other personal sites. I envisioned being
+able to quickly add in project documentation or update project pages on my
+homepage.</p>
+<p>
+As it stands now, rawk is just under 90 lines of actual code (under around 140
+lines when you count comments and whitespace). Being as it is a fairly simple
+bit of code, mostly some cats wrapped in seds and greps, it does have a few 
+limitations, namely:</p>
+<ul>
+<li>the way rawk handles links could be improved,</li>
+<li>the site-menu appears even when there is only the index file, and</li>
+<li>no markdown parser is supplied with rawk, although not-so-subtle hints are 
+made for <a href="http://s01.de/~tox/index.cgi/proj_smu">smu</a>.</li>
+</ul>
+<p>
+I've got to sit down and tackle these problems, as well as look into possibly
+extending rawk:</p>
+<ul>
+<li>image gallery generation (convert + templates + sed magic)</li>
+<li>blogging system (replace blaze!?)</li>
+</ul>
+<p>
+Those are the two major things that I would like to see, and those might be
+pushing the bounds of posix shell - an image gallery would almost certainly
+require the use of an external tool like ImageMagick).</p>
+<p>
+Anyways, it's useful for me. Maybe you'll find it useful as well. The homepage
+has all the information about rawk.</p>
+<ul>
+<li><a href="http://rawk.brokenlcd.net">rawk's homepage</a></li>
+</ul>
+
+  </div>
+
+  <div id="sidebar">
+    <h2>Categories</h2>
+    <ul>
+<li><a href="../../tags/android">android (1)</a></li>
+<li><a href="../../tags/audio">audio (1)</a></li>
+<li><a href="../../tags/bg">bg (3)</a></li>
+<li><a href="../../tags/coding">coding (7)</a></li>
+<li><a href="../../tags/git">git (1)</a></li>
+<li><a href="../../tags/gps">gps (1)</a></li>
+<li><a href="../../tags/guide">guide (1)</a></li>
+<li><a href="../../tags/hacking">hacking (7)</a></li>
+<li><a href="../../tags/hacks">hacks (1)</a></li>
+<li><a href="../../tags/intro">intro (1)</a></li>
+<li><a href="../../tags/jobhunt">jobhunt (1)</a></li>
+<li><a href="../../tags/linux">linux (1)</a></li>
+<li><a href="../../tags/mail">mail (1)</a></li>
+<li><a href="../../tags/music">music (2)</a></li>
+<li><a href="../../tags/netbeans">netbeans (1)</a></li>
+<li><a href="../../tags/networking">networking (1)</a></li>
+<li><a href="../../tags/perl">perl (1)</a></li>
+<li><a href="../../tags/pf">pf (1)</a></li>
+<li><a href="../../tags/pmt2">pmt2 (3)</a></li>
+<li><a href="../../tags/projects">projects (10)</a></li>
+<li><a href="../../tags/python">python (1)</a></li>
+<li><a href="../../tags/rawk">rawk (1)</a></li>
+<li><a href="../../tags/rogue">rogue (1)</a></li>
+<li><a href="../../tags/scripts">scripts (2)</a></li>
+<li><a href="../../tags/shenanigans">shenanigans (3)</a></li>
+<li><a href="../../tags/spam">spam (1)</a></li>
+<li><a href="../../tags/xml">xml (1)</a></li>
+    </ul>
+
+    <h2>Archive</h2>
+    <ul>
+<li><a href="../../2011/05">May 2011 (2)</a></li>
+<li><a href="../../2011/04">April 2011 (1)</a></li>
+<li><a href="../../2011/02">February 2011 (1)</a></li>
+<li><a href="../../2011/01">January 2011 (5)</a></li>
+<li><a href="../../2010/07">July 2010 (3)</a></li>
+<li><a href="../../2010/06">June 2010 (9)</a></li>
+<li><a href="../../2010/05">May 2010 (1)</a></li>
+<li><a href="../../2010/04">April 2010 (4)</a></li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+<li><a href="http://blaze.blackened.cz">BlazeBlogger</a></li>
+<li><a href="https://www.eff.org">The EFF</a></li>
+<li><a href="https://www.torproject.org">The Onion Router</a></li>
+<li><a href="http://devio.us/forums">devio.us forums</a></li>
+<li><a href="http://kisom.devio.us/kisom_bg.pdf">Beginner's Guide to Devio.us
+    </a></li>
+<li><a href="http://github.com/kisom">Primary GitHub profile</a></li>
+<li><a href="https://sourceforge.net/users/isomk">SourceForge profile</a></li>
+    </ul>
+  </div>
+
+  <div id="footer">
+    Copyright &copy; 2011 kyle.
+    Powered by <a href="http://blaze.blackened.cz/">BlazeBlogger</a>.<br />
+    Also powered by 
+    <a href="http://devio.us" alt="wolfman!">
+    <img src="http://devio.us/images/devbutton1.gif" alt="wolfman!"></a>
+
+    
+  </div>
+</div>
+
+</body>
+</html>

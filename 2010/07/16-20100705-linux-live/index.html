@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Generator" content="BlazeBlogger 1.0.0">
+  <meta name="Date" content="Sat May  7 21:17:24 2011">
+  <link rel="stylesheet" href="../../../default.css" type="text/css">
+  <link rel="alternate" href="../../../index.rss" title="RSS Feed" type="application/rss+xml">
+  <title>The Live Linux Saga</title>
+</head>
+
+<body>
+
+<div id="wrapper">
+  <div id="shadow">
+    <div id="heading">
+      <h1><a href="../../../">It's All About the Kung-Fu</a></h1>
+      or How I Learned to Stop Worrying and Love My Green Belt
+    </div>
+
+    <div id="menu">
+      <ul>
+<li><a href="../../../">Home</a></li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+
+<h2 class="post">The Live Linux Saga</h2>
+<div class="information">
+   <span class="date">2010-07-05</span> by <span class="author">kisom</span>, tagged as <span class="tags"><a href="../../../tags/hacking">hacking</a>, <a href="../../../tags/projects">projects</a></span>
+</div>
+<p>I was working through the Hacking: Art of Exploitation, 2nd Edition,
+book source and playing with IDA to look at disassemblies of those files
+(the best place to get back up to speed is to examine your own binaries).
+I wanted to set up a VM so I could save state and keep an isolated system,
+and keep a live CD around for portable work. Here is how I pulled it off.</p>
+<!-- break -->
+
+<p>I first tried using the <a href="http://www.linux-live.org">Linux Live
+</a>scripts. After a lot work trying to figure out the system, including 
+editing the tools/liblinuxlive script to make corrections to the mksquashfs
+call, I finally was able to generate a 660M CD image. Except, that CD
+image apparently didn't include the tools to read the squashfs root, so it
+kernel panicked in the first five seconds of booting. I started looking
+for some alternate options so I wasn't spending all my time trying to get
+it working.</p>
+
+<p>The most promising system that I came across in a five minute Google
+search was <a href="http://www.geekconnection.org/remastersys/index.html">
+remastersys</a> by Tony Brijeski. I already had a VirtualBox VM to 
+build the live CD in running a Debian 5 install; the only two extra 
+packages I added outside the base Debian repos (besides Remastersys) were 
+Google Chrome and of course IDA Pro. I set up the system how I wanted it,
+and ran <tt>remastersys backup</tt>, and was presented with a shiny
+530M iso file. </p>
+
+<p>Of course I wasn't going to get it perfect on the first try, so it's
+an iterative process - I'm currently on revision 3. The moral of the
+story is that if you want to build a live CD based on Debian, you
+should definitely consider Remastersys.</p>
+
+<p>Obligatory screenshot:<br>
+<img src="http://kisom.devio.us/img/livecd-ss.jpg" width=480></p>
+
+
+
+  </div>
+
+  <div id="sidebar">
+    <h2>Categories</h2>
+    <ul>
+<li><a href="../../../tags/android">android (1)</a></li>
+<li><a href="../../../tags/audio">audio (1)</a></li>
+<li><a href="../../../tags/bg">bg (3)</a></li>
+<li><a href="../../../tags/coding">coding (7)</a></li>
+<li><a href="../../../tags/git">git (1)</a></li>
+<li><a href="../../../tags/gps">gps (1)</a></li>
+<li><a href="../../../tags/guide">guide (1)</a></li>
+<li><a href="../../../tags/hacking">hacking (7)</a></li>
+<li><a href="../../../tags/hacks">hacks (1)</a></li>
+<li><a href="../../../tags/intro">intro (1)</a></li>
+<li><a href="../../../tags/jobhunt">jobhunt (1)</a></li>
+<li><a href="../../../tags/linux">linux (1)</a></li>
+<li><a href="../../../tags/mail">mail (1)</a></li>
+<li><a href="../../../tags/music">music (2)</a></li>
+<li><a href="../../../tags/netbeans">netbeans (1)</a></li>
+<li><a href="../../../tags/networking">networking (1)</a></li>
+<li><a href="../../../tags/perl">perl (1)</a></li>
+<li><a href="../../../tags/pf">pf (1)</a></li>
+<li><a href="../../../tags/pmt2">pmt2 (3)</a></li>
+<li><a href="../../../tags/projects">projects (10)</a></li>
+<li><a href="../../../tags/python">python (1)</a></li>
+<li><a href="../../../tags/rawk">rawk (1)</a></li>
+<li><a href="../../../tags/rogue">rogue (1)</a></li>
+<li><a href="../../../tags/scripts">scripts (2)</a></li>
+<li><a href="../../../tags/shenanigans">shenanigans (3)</a></li>
+<li><a href="../../../tags/spam">spam (1)</a></li>
+<li><a href="../../../tags/xml">xml (1)</a></li>
+    </ul>
+
+    <h2>Archive</h2>
+    <ul>
+<li><a href="../../../2011/05">May 2011 (2)</a></li>
+<li><a href="../../../2011/04">April 2011 (1)</a></li>
+<li><a href="../../../2011/02">February 2011 (1)</a></li>
+<li><a href="../../../2011/01">January 2011 (5)</a></li>
+<li><a href="../../../2010/07">July 2010 (3)</a></li>
+<li><a href="../../../2010/06">June 2010 (9)</a></li>
+<li><a href="../../../2010/05">May 2010 (1)</a></li>
+<li><a href="../../../2010/04">April 2010 (4)</a></li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+<li><a href="http://blaze.blackened.cz">BlazeBlogger</a></li>
+<li><a href="https://www.eff.org">The EFF</a></li>
+<li><a href="https://www.torproject.org">The Onion Router</a></li>
+<li><a href="http://devio.us/forums">devio.us forums</a></li>
+<li><a href="http://kisom.devio.us/kisom_bg.pdf">Beginner's Guide to Devio.us
+    </a></li>
+<li><a href="http://github.com/kisom">Primary GitHub profile</a></li>
+<li><a href="https://sourceforge.net/users/isomk">SourceForge profile</a></li>
+    </ul>
+  </div>
+
+  <div id="footer">
+    Copyright &copy; 2011 kyle.
+    Powered by <a href="http://blaze.blackened.cz/">BlazeBlogger</a>.<br />
+    Also powered by 
+    <a href="http://devio.us" alt="wolfman!">
+    <img src="http://devio.us/images/devbutton1.gif" alt="wolfman!"></a>
+
+    
+  </div>
+</div>
+
+</body>
+</html>

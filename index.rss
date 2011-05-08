@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+<channel>
+  <title>It's All About the Kung-Fu</title>
+  <link>http://www.kyleisom.net/blog/</link>
+  <description>or How I Learned to Stop Worrying and Love My Green Belt</description>
+  <generator>BlazeBlogger 1.0.0</generator>
+  <item>
+    <title>the percipio project</title>
+    <link>http://www.kyleisom.net/blog/2011/05/26-percipio_project/</link>
+    <description>
+i needed a project to recentre myself given the current load of inanity in my
+life right now, and a project came up that should provide just that. essentially, i will be designing and building my own 16-bit computer based on
+the book The Elements of Computing Systems. the book is geared towards simulating the computer using the tools provided
+(such as a hardware simulator based on their easy to learn / use HDL) but i've decided the project would be far more satisfying if i actually built the
+co    </description>
+    <pubDate>Sat, 07 May 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>settting a remote git repo: notes</title>
+    <link>http://www.kyleisom.net/blog/2011/05/25-remote_git/</link>
+    <description>
+github is a very useful service but very limiting
+for private repositories with collaborators. there are a few things you need
+to do differently, and a remote repo shouldn't be used for a work environment. the basic requirements are a locally-hosted repo with code and a committed working tree
+a place to store the remote repo accessible via ssh the first thing we need to do is to make sure that if it isn't already,
+the local repo should be committed and clean. $ git commit -a now we need to set     </description>
+    <pubDate>Wed, 04 May 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>Learning Android</title>
+    <link>http://www.kyleisom.net/blog/2011/04/24-learning-android/</link>
+    <description>
+I just started reading the book Learning Android.
+The book relies heavily on using the Eclipse IDE, but as we know Eclipse is
+proof that Shaitan hates us and wants us to be miserable, I'm working through
+the book using netbeans. I'm going to try to start documenting my adventures
+working with android in netbeans. The interested can follow along.
+    </description>
+    <pubDate>Tue, 12 Apr 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>rawk</title>
+    <link>http://www.kyleisom.net/blog/2011/02/23-rawk_released/</link>
+    <description>
+For a long time, building my personal site was painful, simply because I
+didn't need (or want) a large framework or dynamic content or anything
+fancy, just a few simple static pages. I was hand-writing them all, which
+meant that given how little I enjoyed doing that, pages weren't ever really
+getting updated and you can pretty much forget adding much in the way of new
+content. I decided to do something about this, and spent a week or two writing rawk. rawk stands for 'rage against web framework    </description>
+    <pubDate>Wed, 09 Feb 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>mutt and gmail</title>
+    <link>http://www.kyleisom.net/blog/2011/01/21-mutt_and_gmail/</link>
+    <description>I wanted to set up mutt to work with gmail. Here's a quick post talking
+about what you need to have to get IMAP and SMTPS working with mutt. For
+reference, I've been using my google apps email and not just a plain gmail address.
+    </description>
+    <pubDate>Wed, 12 Jan 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>Cleaning Up the Music Library</title>
+    <link>http://www.kyleisom.net/blog/2011/01/22-dedup_py/</link>
+    <description>A while ago, I made the mistake of using iTunes for my music library;
+when I wanted to move my music from my interla hard drive to the external
+drive, I ran into some issues. Namely, the migration (using the iTunes set
+library location followed by a 'organise library') failed multiple times.
+I ended up with lots of duplicate songs.
+    </description>
+    <pubDate>Tue, 11 Jan 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>converting AAC to mp3 in debian squeeze</title>
+    <link>http://www.kyleisom.net/blog/2011/01/20-aac2mp3-squeeze/</link>
+    <description>I recently installed Debian squeeze on my eeepc (a subject for another
+post). The install is a development install, and everyone knows one of the
+most useful things for development is a feed of good music. I keep a small
+music library on the machine and use cmus, a console mp3 player, to play music. Unfortunately, the version
+installed in Debian Squeeze doesn't seem to support AAC. I set out to figure
+out how to convert my AAC files to mp3 files.
+    </description>
+    <pubDate>Sun, 09 Jan 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>new take on spam</title>
+    <link>http://www.kyleisom.net/blog/2011/01/19-new_take_on_spam/</link>
+    <description>I hadn't seen this approach to the Nigerian scams before...
+    </description>
+    <pubDate>Thu, 06 Jan 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>Building an Inline Sniffer using a Guru Server Plus</title>
+    <link>http://www.kyleisom.net/blog/2011/01/18-guruplug_sniffing_bridge/</link>
+    <description>I recently purchased a Global Scale Technologies Guru Server Plus
+to use as a sort of rogue-box system for security research and CTF games.
+Braving my distaste for Linux, I installed Debian on the box using
+Bernd Zeimetz's excellent article Installing Debian on the Guruplug Server Plus. I ended up installing
+twice due to deviations from the instructions; the instructions do work when followed. You will need a JTAG adapter to
+install Debian. I'm not sure how well these instructions will apply to
+    </description>
+    <pubDate>Sun, 02 Jan 2011 00:00:01 GMT</pubDate>
+  </item>
+  <item>
+    <title>Compiling Source Navigator in Ubuntu 10.04</title>
+    <link>http://www.kyleisom.net/blog/2010/07/17-20100724_ubuntu-snav/</link>
+    <description>Compiling source navigator under Ubuntu 10.04 is fairly easy once you
+get the dependencies down. Grab the source from the sourceforge page.
+The dependencies you need are: tk tklib libx11-dev libxmu-dev libxmu-headers libxt-dev libtool Of course you also need build-essential. Then a quick ./configure --prefix=/opt/source-nav
+make
+sudo make install should do the trick.     </description>
+    <pubDate>Thu, 22 Jul 2010 00:00:01 GMT</pubDate>
+  </item>
+</channel>
+</rss>

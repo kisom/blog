@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Generator" content="BlazeBlogger 1.0.0">
+  <meta name="Date" content="Sat May  7 21:17:24 2011">
+  <link rel="stylesheet" href="../../../default.css" type="text/css">
+  <link rel="alternate" href="../../../index.rss" title="RSS Feed" type="application/rss+xml">
+  <title>Why the PMT2?</title>
+</head>
+
+<body>
+
+<div id="wrapper">
+  <div id="shadow">
+    <div id="heading">
+      <h1><a href="../../../">It's All About the Kung-Fu</a></h1>
+      or How I Learned to Stop Worrying and Love My Green Belt
+    </div>
+
+    <div id="menu">
+      <ul>
+<li><a href="../../../">Home</a></li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+
+<h2 class="post">Why the PMT2?</h2>
+<div class="information">
+   <span class="date">2010-06-19</span> by <span class="author">kisom</span>, tagged as <span class="tags"><a href="../../../tags/coding">coding</a>, <a href="../../../tags/pmt2">pmt2</a>, <a href="../../../tags/shenanigans">shenanigans</a></span>
+</div>
+<p>So the next two posts have been about this "Poor Man's Theremin" project
+and I've gotten a few questions as to why I'd even care about such a project.
+I guess it's story time to explain how it came to be and why I'm working on it.
+</p>
+<!--break-->
+<p>The most common first question I get is, what's a theremin? Fortunately,
+there's a <a href="http://en.wikipedia.org/wiki/Theremin" alt="wikipedia
+article">wikipedia article</a> on the instrument; you can check out a 
+<a href="http://video.ted.com/talks/podcast/PameliaKurstin_2002.mp4" 
+alt="TED theremin video">TED video of Pamelia Kurstin playing a theremin</a>.
+It's a pretty interesting musical instrument. So what does this have to do 
+with me? To explain will require some background, so I will step back a
+little and explain the context.</p>
+<p>For the past two years, I've been subscribed to the local defcon group's 
+mailing list, fully intending to show up to a meeting but never quite making
+it. I kept meaning too, even emailed for directions a few times, but never 
+ended up making it down. Last night, I finally made it to a meeting. The topic
+was on wireless triangulation using two laptops and was pretty interesting.
+The premise was that based on the known position of two (or more) laptops,
+you could figure out approximately where a third laptop was. As I'm sure most
+people who have looked into such things know, there's a lot of fluctuation
+in wireless signal strength as a result of complex factors of the various 
+properties of electromagnetic waves. The talk discussed a little bit about
+averaging, and we spent a few minutes discussing better ways to average out
+the signal strength to get a more accurate feel for how far the laptop was.
+The talk turned to using GPS in conjunction to include mapping, and then
+another member of the group brought up the fact that the flucuations in signal
+had once been turned into a music instrument. The original poor man's theremin
+appeared in a <a href="http://www.linuxjournal.com/article/6597" alt="Linux
+Journal article on the Poor Man's Theremin">January 2003 Linux Journal article
+on the Poor Man's Theremin</a>. I pulled up the page and started looking at the
+code.</p>
+<p>I have to admit, the code is a little crufty and I didn't really like the
+coding style. The original PMT couples a C program to generate tones with a
+shell script to monitor signal strength. As it stood, the shell script didn't
+work and I had to add in another cut statement to the grep pipeline to get
+the data we were looking for. Still, no sound. I think this is due to the 
+current state of audio in Linux, and in the vast changes that have occurred in
+the past 7 years. I spent a lot of the meeting trying to tweak it to work but
+was ultimately unsuccessful.</p>
+<p>It got me thinking though, and I began thinking to myself about several
+improvements I could make to the program. First of all, I would much prefer
+the entire program be written in C to avoid finangling with multiple
+interpreters and software systems. Second, the audio would have to be brought
+into modernity. Finally, I began thinking that perhaps threads would benefit 
+the program. I set out to begin coding it.</p>
+<p>As you can see from the next two posts, it has been a rough start. I don't
+claim to be a master of C or even that great of a C coder anymore. You don't
+get any better by not coding, and who knows, maybe this code will entertain 
+someone, inspire them to learn to code more fluently, and maybe get people
+to hack just to satisfy that curious itch. (My last C program was a simple 
+image identifer that determined the format of a image based on the first two
+bytes of the file and I wrote it to satisfy another long-story itch.) We'll
+see how this goes...</p>
+
+
+  </div>
+
+  <div id="sidebar">
+    <h2>Categories</h2>
+    <ul>
+<li><a href="../../../tags/android">android (1)</a></li>
+<li><a href="../../../tags/audio">audio (1)</a></li>
+<li><a href="../../../tags/bg">bg (3)</a></li>
+<li><a href="../../../tags/coding">coding (7)</a></li>
+<li><a href="../../../tags/git">git (1)</a></li>
+<li><a href="../../../tags/gps">gps (1)</a></li>
+<li><a href="../../../tags/guide">guide (1)</a></li>
+<li><a href="../../../tags/hacking">hacking (7)</a></li>
+<li><a href="../../../tags/hacks">hacks (1)</a></li>
+<li><a href="../../../tags/intro">intro (1)</a></li>
+<li><a href="../../../tags/jobhunt">jobhunt (1)</a></li>
+<li><a href="../../../tags/linux">linux (1)</a></li>
+<li><a href="../../../tags/mail">mail (1)</a></li>
+<li><a href="../../../tags/music">music (2)</a></li>
+<li><a href="../../../tags/netbeans">netbeans (1)</a></li>
+<li><a href="../../../tags/networking">networking (1)</a></li>
+<li><a href="../../../tags/perl">perl (1)</a></li>
+<li><a href="../../../tags/pf">pf (1)</a></li>
+<li><a href="../../../tags/pmt2">pmt2 (3)</a></li>
+<li><a href="../../../tags/projects">projects (10)</a></li>
+<li><a href="../../../tags/python">python (1)</a></li>
+<li><a href="../../../tags/rawk">rawk (1)</a></li>
+<li><a href="../../../tags/rogue">rogue (1)</a></li>
+<li><a href="../../../tags/scripts">scripts (2)</a></li>
+<li><a href="../../../tags/shenanigans">shenanigans (3)</a></li>
+<li><a href="../../../tags/spam">spam (1)</a></li>
+<li><a href="../../../tags/xml">xml (1)</a></li>
+    </ul>
+
+    <h2>Archive</h2>
+    <ul>
+<li><a href="../../../2011/05">May 2011 (2)</a></li>
+<li><a href="../../../2011/04">April 2011 (1)</a></li>
+<li><a href="../../../2011/02">February 2011 (1)</a></li>
+<li><a href="../../../2011/01">January 2011 (5)</a></li>
+<li><a href="../../../2010/07">July 2010 (3)</a></li>
+<li><a href="../../../2010/06">June 2010 (9)</a></li>
+<li><a href="../../../2010/05">May 2010 (1)</a></li>
+<li><a href="../../../2010/04">April 2010 (4)</a></li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+<li><a href="http://blaze.blackened.cz">BlazeBlogger</a></li>
+<li><a href="https://www.eff.org">The EFF</a></li>
+<li><a href="https://www.torproject.org">The Onion Router</a></li>
+<li><a href="http://devio.us/forums">devio.us forums</a></li>
+<li><a href="http://kisom.devio.us/kisom_bg.pdf">Beginner's Guide to Devio.us
+    </a></li>
+<li><a href="http://github.com/kisom">Primary GitHub profile</a></li>
+<li><a href="https://sourceforge.net/users/isomk">SourceForge profile</a></li>
+    </ul>
+  </div>
+
+  <div id="footer">
+    Copyright &copy; 2011 kyle.
+    Powered by <a href="http://blaze.blackened.cz/">BlazeBlogger</a>.<br />
+    Also powered by 
+    <a href="http://devio.us" alt="wolfman!">
+    <img src="http://devio.us/images/devbutton1.gif" alt="wolfman!"></a>
+
+    
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Generator" content="BlazeBlogger 1.0.0">
+  <meta name="Date" content="Sat May  7 21:17:24 2011">
+  <link rel="stylesheet" href="../../../default.css" type="text/css">
+  <link rel="alternate" href="../../../index.rss" title="RSS Feed" type="application/rss+xml">
+  <title>Building an Inline Sniffer using a Guru Server Plus</title>
+</head>
+
+<body>
+
+<div id="wrapper">
+  <div id="shadow">
+    <div id="heading">
+      <h1><a href="../../../">It's All About the Kung-Fu</a></h1>
+      or How I Learned to Stop Worrying and Love My Green Belt
+    </div>
+
+    <div id="menu">
+      <ul>
+<li><a href="../../../">Home</a></li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+
+<h2 class="post">Building an Inline Sniffer using a Guru Server Plus</h2>
+<div class="information">
+   <span class="date">2011-01-02</span> by <span class="author">kyle</span>, tagged as <span class="tags"><a href="../../../tags/projects">projects</a>, <a href="../../../tags/rogue">rogue</a></span>
+</div>
+<p>I recently purchased a Global Scale Technologies Guru Server Plus
+to use as a sort of rogue-box system for security research and CTF games.
+Braving my distaste for Linux, I installed Debian on the box using
+Bernd Zeimetz's excellent article 
+<a href="http://bzed.de/posts/2010/05/installing_debian_on_the_guruplug_server_plus/">
+Installing Debian on the Guruplug Server Plus</a>. I ended up installing
+twice due to deviations from the instructions; the instructions <strong>do
+</strong> work when followed. You will need a JTAG adapter to
+install Debian. I'm not sure how well these instructions will apply to
+the default version of linux that ships on the plug, so your mileage
+may vary.</p>
+<!-- break -->
+<a href="/blog/img/sniffer_large.jpg"><img src="/blog/img/sniffer_med.jpg" width=480></a><br>
+<i>The sniffer with the JTAG/serial interface attached.</i>
+<br><br>
+
+<p>The first snag came when I tried to set up the wireless interface. It
+uses the libertas firmware from Marvell; the drivers can be found in
+<tt>/lib/firmware/mrvl</tt> on the original plug root filesystem (conveniently 
+available as a download at 
+<a href="http://plugcomputer.org/index.php/us/resources/downloads?func=fileinfo&id=77">from the plugcomputer.org site</a>. Extract the tarball to a
+temp directory and copy the /lib/firmware/mrvl directory to the Debian 
+install on the Guru. You may also have to load the kernel module
+<tt>libertas_sdio</tt> (I got this via <tt>apt-get install 
+libertas-firmware</tt>). The firmware should load on boot now, and the 
+wireless card will show up as <tt>wlan0</tt>.</p>
+<p>You will want to install the <tt>bridge-utils</tt> and <tt>tcpdump</tt> 
+packages. The man page for <tt>brctl</tt> is practically useless, as it 
+displays the wrong syntax for at least one command - don't take it too 
+seriously. I wrote two scripts that execute on start - one sets up the bridge 
+interface, essentially doing <br>
+<tt><pre>
+ifconfig eth0 0.0.0.0
+ifconfig eth1 0.0.0.0
+brctl addbr br0
+brctl addif eth0
+brctl addif eth1
+ifconfig br0 up
+</pre></tt><br>
+This script then calls a second script to start up the wireless interface
+as a wireless client (for remote access). Lastly, the first script
+backgrounds a tcpdump capture on <tt>br0</tt>, writing to the 16G root 
+filesystem.  </p>
+<p><i>Hacking the scripts</i>:<br>
+The scripts are fairly straightforward, and assume the following conditions:
+<br>
+	<ol>
+	<li>the bridge is being inserted between a router and modem,</li>
+	<li>the sniffer will use a wireless interface in client-mode to server
+	as a management interface,</li>
+	<li>all traffic should be captured, and</li>
+	<li>there won't be any frames larger than 1600 bytes</li>
+	</ol>
+If your needs vary, you should keep your conditions in mind if you're going off
+this guide.</p>
+<p>For <tt>bridge-sniff.sh</tt>, if no management interface is wanted 
+<tt>$MAN_SH</tt> can be set to whatever, but set <tt>${MANAGE}</tt> to 
+<tt>0</tt>. This script should be called from 
+<tt>/etc/rc.local</tt> so that it can be triggered on boot.</p>
+
+<p><tt>wicli.sh</tt> is similarly straightforward - change <tt>${WLAN}</tt> and 
+<tt>NWID</tt> to your
+network's / machine's settings. If need be, add in your WEP/WPA authentication.
+If you wish to filter access to the management interface by MAC address, set
+the <tt>MACFILTER</tt> variable to <tt>1</tt> and set the <tt>MACADDR</tt> 
+variable to the management machine's interface MAC.</p>
+
+<p>Other ideas include setting up the wireless as an access point or using a
+3G connection for access. As for the guru platform, it has been a real
+headache to work with. Unless you <strong>need</strong> built in wireless
+and dual NICs, I would recommend going with the Sheeva platform, which I
+have had great success with.</p>
+<p>Resources<br>
+<ul>
+<li><a href="http://globalscaletechnologies.com/p-32-guruplug-server-plus.aspx">Guruplug Server Plus</a></li>
+<li>Bernd Zeimetz's <a href="http://bzed.de/posts/2010/05/installing_debian_on_the_guruplug_server_plus/">install instructions</a></li>
+<li><a href=""http://plugcomputer.org/index.php/us/resources/downloads?func=fileinfo&id=77">tarball of rootfs</a></li>
+<li>my scripts: <a href="/blog/scripts/bridge-sniff.sh">bridge-sniff.sh</a> and 
+<a href="/blog/scripts/wicli.sh">wicli.sh</a></li>
+</p>
+
+
+  </div>
+
+  <div id="sidebar">
+    <h2>Categories</h2>
+    <ul>
+<li><a href="../../../tags/android">android (1)</a></li>
+<li><a href="../../../tags/audio">audio (1)</a></li>
+<li><a href="../../../tags/bg">bg (3)</a></li>
+<li><a href="../../../tags/coding">coding (7)</a></li>
+<li><a href="../../../tags/git">git (1)</a></li>
+<li><a href="../../../tags/gps">gps (1)</a></li>
+<li><a href="../../../tags/guide">guide (1)</a></li>
+<li><a href="../../../tags/hacking">hacking (7)</a></li>
+<li><a href="../../../tags/hacks">hacks (1)</a></li>
+<li><a href="../../../tags/intro">intro (1)</a></li>
+<li><a href="../../../tags/jobhunt">jobhunt (1)</a></li>
+<li><a href="../../../tags/linux">linux (1)</a></li>
+<li><a href="../../../tags/mail">mail (1)</a></li>
+<li><a href="../../../tags/music">music (2)</a></li>
+<li><a href="../../../tags/netbeans">netbeans (1)</a></li>
+<li><a href="../../../tags/networking">networking (1)</a></li>
+<li><a href="../../../tags/perl">perl (1)</a></li>
+<li><a href="../../../tags/pf">pf (1)</a></li>
+<li><a href="../../../tags/pmt2">pmt2 (3)</a></li>
+<li><a href="../../../tags/projects">projects (10)</a></li>
+<li><a href="../../../tags/python">python (1)</a></li>
+<li><a href="../../../tags/rawk">rawk (1)</a></li>
+<li><a href="../../../tags/rogue">rogue (1)</a></li>
+<li><a href="../../../tags/scripts">scripts (2)</a></li>
+<li><a href="../../../tags/shenanigans">shenanigans (3)</a></li>
+<li><a href="../../../tags/spam">spam (1)</a></li>
+<li><a href="../../../tags/xml">xml (1)</a></li>
+    </ul>
+
+    <h2>Archive</h2>
+    <ul>
+<li><a href="../../../2011/05">May 2011 (2)</a></li>
+<li><a href="../../../2011/04">April 2011 (1)</a></li>
+<li><a href="../../../2011/02">February 2011 (1)</a></li>
+<li><a href="../../../2011/01">January 2011 (5)</a></li>
+<li><a href="../../../2010/07">July 2010 (3)</a></li>
+<li><a href="../../../2010/06">June 2010 (9)</a></li>
+<li><a href="../../../2010/05">May 2010 (1)</a></li>
+<li><a href="../../../2010/04">April 2010 (4)</a></li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+<li><a href="http://blaze.blackened.cz">BlazeBlogger</a></li>
+<li><a href="https://www.eff.org">The EFF</a></li>
+<li><a href="https://www.torproject.org">The Onion Router</a></li>
+<li><a href="http://devio.us/forums">devio.us forums</a></li>
+<li><a href="http://kisom.devio.us/kisom_bg.pdf">Beginner's Guide to Devio.us
+    </a></li>
+<li><a href="http://github.com/kisom">Primary GitHub profile</a></li>
+<li><a href="https://sourceforge.net/users/isomk">SourceForge profile</a></li>
+    </ul>
+  </div>
+
+  <div id="footer">
+    Copyright &copy; 2011 kyle.
+    Powered by <a href="http://blaze.blackened.cz/">BlazeBlogger</a>.<br />
+    Also powered by 
+    <a href="http://devio.us" alt="wolfman!">
+    <img src="http://devio.us/images/devbutton1.gif" alt="wolfman!"></a>
+
+    
+  </div>
+</div>
+
+</body>
+</html>

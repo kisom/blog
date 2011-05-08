@@ -1,0 +1,45 @@
+# This and following lines beginning with  `#' are the post header.  Please
+# take your time and replace these options with desired values. Just remem-
+# ber that the date has to be in an YYYY-MM-DD form, tags are a comma sepa-
+# rated list of categories the post (pages ignore these) belong to, and the
+# url, if provided, should consist of alphanumeric characters,  hyphens and
+# underscores only. Specifying your own url  is especially recommended when
+# you use non-ASCII characters in your post title.
+#
+#   title: Cleaning Up the Music Library
+#   author: kyle
+#   date:   2011-01-11
+#   tags:   music, python, scripts
+#   url:    dedup_py
+#
+# The header ends here. The rest is the content of your post.
+<p>A while ago, I made the mistake of using iTunes for my music library;
+when I wanted to move my music from my interla hard drive to the external
+drive, I ran into some issues. Namely, the migration (using the iTunes set
+library location followed by a 'organise library') failed multiple times.
+I ended up with lots of duplicate songs.</p>
+<!-- break -->
+<p>Most of my music directories looked like:
+<pre>
+02 Pyramid Song.mp3
+02 Pyramid Song 2.mp3
+02 Pyramid Song 3.mp3
+03 Pulk_Pull Revolving Doors.mp3
+03 Pulk_Pull Revolving Doors 1.mp3
+03 Pulk_Pull Revolving Doors 2.mp3
+</pre>
+Some had no copies, others had between one and four copies. This made my
+music library take up far more space than was necessary; what should have
+only taken up 101G took up over three times that. I pared it down to twice
+what it should have been but got tired of doing it by hand - after all,
+computers are very userful for doing tedious work. So during a fit of
+insomnia a few nights ago, I wrote up a quick bit of python to fix it. I
+tested it repeatedly on single artist directories (which would give a large
+enough sample space to play with) until I had it working like I wanted it
+to (including preferring <tt>02 Pyramid Song.mp3</tt> over
+<tt>02 Pyramid Song <i>n</i>.mp3</tt>. Then, I unleashed it on the full
+library. During testing, I counted the removal of over 1100 songs (and that
+was just during the time I was counting how many files were hit). The final
+purging removed over 15,500 songs in two and a half hours.</p>
+<p>The code is pretty simple, just over one hundred lines of python. You 
+can take a look at it <a href="/blog/scripts/dedup.txt">here</a>.</p>

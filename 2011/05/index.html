@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Generator" content="BlazeBlogger 1.0.0">
+  <meta name="Date" content="Sat May  7 21:17:24 2011">
+  <link rel="stylesheet" href="../../default.css" type="text/css">
+  <link rel="alternate" href="../../index.rss" title="RSS Feed" type="application/rss+xml">
+  <title>Archive for May 2011</title>
+</head>
+
+<body>
+
+<div id="wrapper">
+  <div id="shadow">
+    <div id="heading">
+      <h1><a href="../../">It's All About the Kung-Fu</a></h1>
+      or How I Learned to Stop Worrying and Love My Green Belt
+    </div>
+
+    <div id="menu">
+      <ul>
+<li><a href="../../">Home</a></li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+<div class="section">Archive for May 2011</div>
+
+<h2 class="post"><a href="../../2011/05/26-percipio_project">the percipio project</a></h2>
+<div class="information">
+   <span class="date">2011-05-07</span> by <span class="author">kyle</span>, tagged as <span class="tags"><a href="../../tags/hacking">hacking</a>, <a href="../../tags/projects">projects</a></span>
+</div>
+<p>
+i needed a project to recentre myself given the current load of inanity in my
+life right now, and a project came up that should provide just that. 
+essentially, i will be designing and building my own 16-bit computer based on
+the book <a href="http://www1.idc.ac.il/tecs/">The Elements of Computing Systems</a>.</p>
+<p>
+the book is geared towards simulating the computer using the tools provided
+(such as a hardware simulator based on their easy to learn / use HDL) but 
+i've decided the project would be far more satisfying if i actually built the
+computer. to that end, i'm having to do a lot more work designing the actual
+NAND-based circuits. i've been learning a lot just in this first chapter,
+and given that i don't know enough right now to pull this off, it should be
+rewarding.</p>
+<p>
+i have a git repository set up for the projects in the book on 
+<a href="https://www.github.com/kisom/tecs">a github repo</a> and the project has an
+<a href="https://www.github.com/kisom/percipio">additional github repo</a>.</p>
+<p>
+i will try to update progress here.</p>
+
+<h2 class="post"><a href="../../2011/05/25-remote_git">settting a remote git repo: notes</a></h2>
+<div class="information">
+   <span class="date">2011-05-04</span> by <span class="author">kyle</span>, tagged as <span class="tags"><a href="../../tags/git">git</a>, <a href="../../tags/hacking">hacking</a>, <a href="../../tags/projects">projects</a></span>
+</div>
+<p>
+<a href="https://www.github.com">github</a> is a very useful service but very limiting
+for private repositories with collaborators. there are a few things you need
+to do differently, and a remote repo shouldn't be used for a work environment.</p>
+<p>
+the basic requirements are
+<ul>
+<li>a locally-hosted repo with code and a committed working tree</li>
+<li>a place to store the remote repo accessible via ssh</li>
+</ul>
+</p>
+<p>
+the first thing we need to do is to make sure that if it isn't already,
+the local repo should be committed and clean.  <br />  
+<code>$ git commit -a</code></p>
+<p>
+now we need to set up our remote end. if you are setting up the remote end on
+a remote server, go ahead and ssh into it. next, make the directory to store
+the repo in. a standard naming convention is to name the remote end as
+<code>$repo.git</code>. For example, if your project is named <code>woofs</code> and you are setting
+it up in /git/kyle, you would issue:  <br />  
+<code>mkdir /git/kyle/woofs.git</code>  <br />  </p>
+<p>
+now change your
+working directory to the repo dir. the next thing to do is to create a bare
+repo in this directory:  <br />  
+<code>$ git init --bare</code>  <br />  </p>
+<p>
+now, you need to make sure the permissions are set up properly. assuming the
+project belongs to the woofs group and using the same directory structure as 
+above, you could do something along the lines of  <br />  
+<pre><code>$ chgrp -R woofs /git/kyle/woofs.git    
+$ chmod -R g+w /git/kyle/woofs.git</code></pre>
+</p>
+<p>
+now you can log off the server if you are on a remote system.</p>
+<p>
+for your local repo, change your working directory to it.
+<pre><code>$ cd ~/code/woofs</code></pre>
+</p>
+<p>
+add your remote repo -  <br />  
+<ul>
+<li>for a remote server: <code>$ git remote add origin ssh://remote_server/git/kyle/woofs.git</code>  <br />  </li>
+<li>for a local server: <code>$ git remote add origin /git/kyle/woofs</code>    </li>
+</ul>
+</p>
+<p>
+now push changes:
+<pre><code>$ git push origin master</code></pre>
+</p>
+<p>
+at this point, you should be able to just issue a <code>git push</code> from now.</p>
+<p>
+your collaborators (or you on a different machine) should be able to  <br />  
+<ul>
+<li>for a remote server: <code>$ git clone ssh://remote_server/git/kyle/woofs.git</code>  <br />  </li>
+<li>for a local path: <code>$ git clone /git/kyle/woofs.git</code></li>
+</ul>
+</p>
+<p>
+obviously you need to have proper unix permissions, like groups and user
+accounts on the remote server. it's easiest to set up ssh keys but that's just
+a convenience thing.</p>
+<p>
+that's all there is to it.</p>
+
+  </div>
+
+  <div id="sidebar">
+    <h2>Categories</h2>
+    <ul>
+<li><a href="../../tags/android">android (1)</a></li>
+<li><a href="../../tags/audio">audio (1)</a></li>
+<li><a href="../../tags/bg">bg (3)</a></li>
+<li><a href="../../tags/coding">coding (7)</a></li>
+<li><a href="../../tags/git">git (1)</a></li>
+<li><a href="../../tags/gps">gps (1)</a></li>
+<li><a href="../../tags/guide">guide (1)</a></li>
+<li><a href="../../tags/hacking">hacking (7)</a></li>
+<li><a href="../../tags/hacks">hacks (1)</a></li>
+<li><a href="../../tags/intro">intro (1)</a></li>
+<li><a href="../../tags/jobhunt">jobhunt (1)</a></li>
+<li><a href="../../tags/linux">linux (1)</a></li>
+<li><a href="../../tags/mail">mail (1)</a></li>
+<li><a href="../../tags/music">music (2)</a></li>
+<li><a href="../../tags/netbeans">netbeans (1)</a></li>
+<li><a href="../../tags/networking">networking (1)</a></li>
+<li><a href="../../tags/perl">perl (1)</a></li>
+<li><a href="../../tags/pf">pf (1)</a></li>
+<li><a href="../../tags/pmt2">pmt2 (3)</a></li>
+<li><a href="../../tags/projects">projects (10)</a></li>
+<li><a href="../../tags/python">python (1)</a></li>
+<li><a href="../../tags/rawk">rawk (1)</a></li>
+<li><a href="../../tags/rogue">rogue (1)</a></li>
+<li><a href="../../tags/scripts">scripts (2)</a></li>
+<li><a href="../../tags/shenanigans">shenanigans (3)</a></li>
+<li><a href="../../tags/spam">spam (1)</a></li>
+<li><a href="../../tags/xml">xml (1)</a></li>
+    </ul>
+
+    <h2>Archive</h2>
+    <ul>
+<li><a href="../../2011/05">May 2011 (2)</a></li>
+<li><a href="../../2011/04">April 2011 (1)</a></li>
+<li><a href="../../2011/02">February 2011 (1)</a></li>
+<li><a href="../../2011/01">January 2011 (5)</a></li>
+<li><a href="../../2010/07">July 2010 (3)</a></li>
+<li><a href="../../2010/06">June 2010 (9)</a></li>
+<li><a href="../../2010/05">May 2010 (1)</a></li>
+<li><a href="../../2010/04">April 2010 (4)</a></li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+<li><a href="http://blaze.blackened.cz">BlazeBlogger</a></li>
+<li><a href="https://www.eff.org">The EFF</a></li>
+<li><a href="https://www.torproject.org">The Onion Router</a></li>
+<li><a href="http://devio.us/forums">devio.us forums</a></li>
+<li><a href="http://kisom.devio.us/kisom_bg.pdf">Beginner's Guide to Devio.us
+    </a></li>
+<li><a href="http://github.com/kisom">Primary GitHub profile</a></li>
+<li><a href="https://sourceforge.net/users/isomk">SourceForge profile</a></li>
+    </ul>
+  </div>
+
+  <div id="footer">
+    Copyright &copy; 2011 kyle.
+    Powered by <a href="http://blaze.blackened.cz/">BlazeBlogger</a>.<br />
+    Also powered by 
+    <a href="http://devio.us" alt="wolfman!">
+    <img src="http://devio.us/images/devbutton1.gif" alt="wolfman!"></a>
+
+    
+  </div>
+</div>
+
+</body>
+</html>

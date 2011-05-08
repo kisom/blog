@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+                      "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="Generator" content="BlazeBlogger 1.0.0">
+  <meta name="Date" content="Sat May  7 21:17:24 2011">
+  <link rel="stylesheet" href="../../../default.css" type="text/css">
+  <link rel="alternate" href="../../../index.rss" title="RSS Feed" type="application/rss+xml">
+  <title>I Am Dumb</title>
+</head>
+
+<body>
+
+<div id="wrapper">
+  <div id="shadow">
+    <div id="heading">
+      <h1><a href="../../../">It's All About the Kung-Fu</a></h1>
+      or How I Learned to Stop Worrying and Love My Green Belt
+    </div>
+
+    <div id="menu">
+      <ul>
+<li><a href="../../../">Home</a></li>
+
+      </ul>
+    </div>
+  </div>
+
+  <div id="content">
+
+<h2 class="post">I Am Dumb</h2>
+<div class="information">
+   <span class="date">2010-06-19</span> by <span class="author">kisom</span>, tagged as <span class="tags"><a href="../../../tags/coding">coding</a>, <a href="../../../tags/pmt2">pmt2</a>, <a href="../../../tags/shenanigans">shenanigans</a></span>
+</div>
+<p>Hello, world. I am dumb.</p>
+
+<p>Okay, so that last statement may not make sense to you. kisom... dumb?
+What nonsense is this? (Or to quote my man Mr. T, quit your jibber-jabber, 
+fool!) Well, have a seat, and I'll tell you a tale. Believe
+me, it's true. You I can save, but for me it's too late.</p>
+<!-- break -->
+
+<p>It all started at a DC303 meeting (defcon 303). The presentation was on
+wireless triangulation using two laptops, but I and another attendee
+got on the subject of the wireless theremin as featured in this Linux Journal
+<a href="http://www.linuxjournal.com/article/6597" alt="Linux Journal: The 
+Poor Man's Theremin">article</a>. Try as we might, we couldn't get it to work.
+Looking at the code, it was kind of messy for being as little code as it was,
+and relied on a C program coupled with a shell script. It also wouldn't
+output sound, which I blame on the convoluted state of audio in the current
+linux distribution. I thought I could do better, and came up with a Grand
+Scheme (not like R5RS scheme, unfortunately). I would write The Poor Man's
+Theremin 2.0, featuring threads (a signal monitor, a tone generator, and 
+possibly an output display) and all contained in C, no need for shell scripts.
+Sounds awesome, right?</p>
+<p>Well, I got home and started working on it. I yum installed (yes, I'm using
+Fedora, want to make something of it?) the portaudio and wireless-tool
+libraries, wrote a quick portaudio initializer to test the library and moved
+on to writing a quick signal strength snarfer. That, children, is when things
+turned ugly. My code just would not compile. I got all kinds of errors in
+if.h and wireless.h. Since I consider myself a hacker, I decided to roll my
+sleeves up and figure out what was wrong.</p>
+<p>I first turned to The Google Machine. However, it turns out most people
+aren't writing custom wireless applications using the wireless-tools headers,
+and I couldn't find much of anything there. I even involved kismet, you
+know, to look through the source, but that ended up being messy. Two hours
+later, I finally download the wireless-tools.29.tar.gz, unpack it, and start
+browsing. Two minutes later, I find iwlib.h in the directory. I thought
+briefly to throw it in my project folder, but wait - what if wireless-tools
+gets updated? I should find a standard library. So then this happens:<br>
+<br>
+<tt>
+&lt;straylight: ~> $ find /usr/include -name iwlib.h<br>
+/usr/include/iwlib.h<br>
+</tt><br>
+You know, it was there the whole time, laughing at my pitiful mortal efforts
+to interface with wireless. I replaced the stack of #includes in my code by
+now, and it compiles cleanly. Whaddaya know? I'm dumb.</p>
+
+
+
+  </div>
+
+  <div id="sidebar">
+    <h2>Categories</h2>
+    <ul>
+<li><a href="../../../tags/android">android (1)</a></li>
+<li><a href="../../../tags/audio">audio (1)</a></li>
+<li><a href="../../../tags/bg">bg (3)</a></li>
+<li><a href="../../../tags/coding">coding (7)</a></li>
+<li><a href="../../../tags/git">git (1)</a></li>
+<li><a href="../../../tags/gps">gps (1)</a></li>
+<li><a href="../../../tags/guide">guide (1)</a></li>
+<li><a href="../../../tags/hacking">hacking (7)</a></li>
+<li><a href="../../../tags/hacks">hacks (1)</a></li>
+<li><a href="../../../tags/intro">intro (1)</a></li>
+<li><a href="../../../tags/jobhunt">jobhunt (1)</a></li>
+<li><a href="../../../tags/linux">linux (1)</a></li>
+<li><a href="../../../tags/mail">mail (1)</a></li>
+<li><a href="../../../tags/music">music (2)</a></li>
+<li><a href="../../../tags/netbeans">netbeans (1)</a></li>
+<li><a href="../../../tags/networking">networking (1)</a></li>
+<li><a href="../../../tags/perl">perl (1)</a></li>
+<li><a href="../../../tags/pf">pf (1)</a></li>
+<li><a href="../../../tags/pmt2">pmt2 (3)</a></li>
+<li><a href="../../../tags/projects">projects (10)</a></li>
+<li><a href="../../../tags/python">python (1)</a></li>
+<li><a href="../../../tags/rawk">rawk (1)</a></li>
+<li><a href="../../../tags/rogue">rogue (1)</a></li>
+<li><a href="../../../tags/scripts">scripts (2)</a></li>
+<li><a href="../../../tags/shenanigans">shenanigans (3)</a></li>
+<li><a href="../../../tags/spam">spam (1)</a></li>
+<li><a href="../../../tags/xml">xml (1)</a></li>
+    </ul>
+
+    <h2>Archive</h2>
+    <ul>
+<li><a href="../../../2011/05">May 2011 (2)</a></li>
+<li><a href="../../../2011/04">April 2011 (1)</a></li>
+<li><a href="../../../2011/02">February 2011 (1)</a></li>
+<li><a href="../../../2011/01">January 2011 (5)</a></li>
+<li><a href="../../../2010/07">July 2010 (3)</a></li>
+<li><a href="../../../2010/06">June 2010 (9)</a></li>
+<li><a href="../../../2010/05">May 2010 (1)</a></li>
+<li><a href="../../../2010/04">April 2010 (4)</a></li>
+    </ul>
+
+    <h2>Links</h2>
+    <ul>
+<li><a href="http://blaze.blackened.cz">BlazeBlogger</a></li>
+<li><a href="https://www.eff.org">The EFF</a></li>
+<li><a href="https://www.torproject.org">The Onion Router</a></li>
+<li><a href="http://devio.us/forums">devio.us forums</a></li>
+<li><a href="http://kisom.devio.us/kisom_bg.pdf">Beginner's Guide to Devio.us
+    </a></li>
+<li><a href="http://github.com/kisom">Primary GitHub profile</a></li>
+<li><a href="https://sourceforge.net/users/isomk">SourceForge profile</a></li>
+    </ul>
+  </div>
+
+  <div id="footer">
+    Copyright &copy; 2011 kyle.
+    Powered by <a href="http://blaze.blackened.cz/">BlazeBlogger</a>.<br />
+    Also powered by 
+    <a href="http://devio.us" alt="wolfman!">
+    <img src="http://devio.us/images/devbutton1.gif" alt="wolfman!"></a>
+
+    
+  </div>
+</div>
+
+</body>
+</html>

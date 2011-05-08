@@ -1,0 +1,22 @@
+[blog]
+  lang = en_GB
+  posts = 10
+  style = default.css
+  subtitle = or How I Learned to Stop Worrying and Love My Green Belt
+  theme = default.html
+  title = It's All About the Kung-Fu
+  url = http://www.kyleisom.net/blog
+[color]
+  list = false
+  log = false
+[core]
+  encoding = UTF-8
+  extension = html
+  processor = smu %in% > %out%
+[post]
+  author = top
+  date = top
+  tags = top
+[user]
+  email = kyle@kyleisom.net
+  name = kyle

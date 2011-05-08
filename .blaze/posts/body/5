@@ -1,0 +1,15 @@
+
+<p>Started working on a new program to dump GPS NMEA data into a GPX file.</p>
+
+<p>I wanted to be able to tag photos with gpscorrelate but I didn't have an easy
+way to generate the required GPX files. Today I began work on gps2gpx, which
+is just a program that plugs various CPAN modules together to give me what 
+I want. Eventually I'll throw together a TCL interface for it as well. It
+will be win.</p>
+
+<p>Source is available <a href="http://kisom.devio.us/dg/code/text/perl/gpsd2gpx.txt">
+online</a> as a plaintext file.</p>
+
+
+
+

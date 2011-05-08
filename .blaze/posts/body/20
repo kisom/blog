@@ -1,0 +1,42 @@
+<p>I recently installed Debian squeeze on my eeepc (a subject for another
+post). The install is a development install, and everyone knows one of the
+most useful things for development is a feed of good music. I keep a small
+music library on the machine and use <a href="http://cmus.sourceforge.net">
+cmus</a>, a console mp3 player, to play music. Unfortunately, the version
+installed in Debian Squeeze doesn't seem to support AAC. I set out to figure
+out how to convert my AAC files to mp3 files.</p>
+<!-- break -->
+<p>I threw a quick search into DuckDuckGo for "debian convert m4a to mp3",
+hoping the debian repos would have tasty treats for me. No such luck.
+I did run into 
+<a href="http://www.togaware.com/linux/survivor/Convert_m4a.html">
+this article</a> which shows how to convert between the two using
+<tt>faad</tt> and <tt>lame</tt>. Unfortunately, I couldn't find the LAME
+binaries in the debian repos (lame, I know). I did find twolame, however.
+A quick translation between the various options was neccessary, so I 
+tweaked the script by Graham Williams. I ended up with the following, using
+the twolame and faad packages in the squeeze repos:
+<pre>
+#!/bin/bash
+
+BITRATE=192
+
+if [ -n "$1" ]; then
+    BITRATE=$1
+fi
+
+echo "bitrate: ${BITRATE}"
+
+for i in *.m4a
+do
+    echo "converting $i"
+    faad -o - "$i" | twolame -r -b $BITRATE - "${i%m4a}mp3"
+done
+</pre>
+</p>
+<p>One word of advice - this encoding process doesn't fill tags. I use
+easytag for tagging, but use whatever works for you. Once this is done,
+you can remove the original .m4as if you wish. Earfood ready for consumption!
+</p>
+
+

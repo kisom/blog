@@ -1,0 +1,15 @@
+<p>With my new job I decided to break out IDA Pro again and relearn the art
+of disassembly (and therefore the art of assembly) again, despite the fact
+that I don't work with the x86 platform.</p>
+<!--break-->
+<p>I copied the ida directory to /usr/idapro and set up the proper symlink
+(/usr/bin/idapro -> /usr/idapro/idal64), and then ran idapro in excited
+anticipation. Except one little problem:<br><br><tt>
+&lt;straylight: ~> $ idapro<br>
+zsh: no such file or directory<br>
+<br>
+</p>
+<p>Turns out my copy was linked against the 32-bit version of glibc. Once
+I installed that, I was greeted by IDA pro working:<br>
+<img src="http://kisom.devio.us/img/idass.jpg" width=500>
+</p>

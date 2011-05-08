@@ -1,0 +1,7 @@
+
+<p>Finished up the SSH keys login section.</p>
+<p>I also did a lot of clean up and formatting work, and made it less Windows
+/ PuTTY-specific by adding in sections for OS X and Linux users. I think
+now I'm going to work on a section on more advanced shell usage. Werd to
+your mother.</p>
+

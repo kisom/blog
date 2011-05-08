@@ -1,0 +1,34 @@
+<p>I was working through the Hacking: Art of Exploitation, 2nd Edition,
+book source and playing with IDA to look at disassemblies of those files
+(the best place to get back up to speed is to examine your own binaries).
+I wanted to set up a VM so I could save state and keep an isolated system,
+and keep a live CD around for portable work. Here is how I pulled it off.</p>
+<!-- break -->
+
+<p>I first tried using the <a href="http://www.linux-live.org">Linux Live
+</a>scripts. After a lot work trying to figure out the system, including 
+editing the tools/liblinuxlive script to make corrections to the mksquashfs
+call, I finally was able to generate a 660M CD image. Except, that CD
+image apparently didn't include the tools to read the squashfs root, so it
+kernel panicked in the first five seconds of booting. I started looking
+for some alternate options so I wasn't spending all my time trying to get
+it working.</p>
+
+<p>The most promising system that I came across in a five minute Google
+search was <a href="http://www.geekconnection.org/remastersys/index.html">
+remastersys</a> by Tony Brijeski. I already had a VirtualBox VM to 
+build the live CD in running a Debian 5 install; the only two extra 
+packages I added outside the base Debian repos (besides Remastersys) were 
+Google Chrome and of course IDA Pro. I set up the system how I wanted it,
+and ran <tt>remastersys backup</tt>, and was presented with a shiny
+530M iso file. </p>
+
+<p>Of course I wasn't going to get it perfect on the first try, so it's
+an iterative process - I'm currently on revision 3. The moral of the
+story is that if you want to build a live CD based on Debian, you
+should definitely consider Remastersys.</p>
+
+<p>Obligatory screenshot:<br>
+<img src="http://kisom.devio.us/img/livecd-ss.jpg" width=480></p>
+
+

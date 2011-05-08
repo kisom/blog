@@ -1,0 +1,19 @@
+
+<p>I decided I would use this blog to update progress on the beginner's guide.
+</p>
+<p>Currently, I have finished 5 chapters:<br>
+0x01 . Connecting to the Server<br>
+0x02 . First Steps in the Shell<br>
+0x03 . Creating a Quick Homepage<br>
+0x04 . tmux, the terminal multiplexer, and irssi, the best console IRC client EVAR<br>
+0x05 . Installing Software into Your Home Directory<br>
+</p>
+
+<p>I am currently working on the chapter on uploading files to the account,
+which should be a fairly short section.</p>
+
+<p>Following that, I will cover SSH keys, some advanced shell stuff like shell
+variables, and end with basic shell scripting.</p>
+
+
+

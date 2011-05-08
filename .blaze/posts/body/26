@@ -1,0 +1,19 @@
+<p>
+i needed a project to recentre myself given the current load of inanity in my
+life right now, and a project came up that should provide just that. 
+essentially, i will be designing and building my own 16-bit computer based on
+the book <a href="http://www1.idc.ac.il/tecs/">The Elements of Computing Systems</a>.</p>
+<p>
+the book is geared towards simulating the computer using the tools provided
+(such as a hardware simulator based on their easy to learn / use HDL) but 
+i've decided the project would be far more satisfying if i actually built the
+computer. to that end, i'm having to do a lot more work designing the actual
+NAND-based circuits. i've been learning a lot just in this first chapter,
+and given that i don't know enough right now to pull this off, it should be
+rewarding.</p>
+<p>
+i have a git repository set up for the projects in the book on 
+<a href="https://www.github.com/kisom/tecs">a github repo</a> and the project has an
+<a href="https://www.github.com/kisom/percipio">additional github repo</a>.</p>
+<p>
+i will try to update progress here.</p>

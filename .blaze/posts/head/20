@@ -1,0 +1,6 @@
+[header]
+  author = kyle
+  date = 2011-01-09
+  tags = audio, linux, music, scripts
+  title = converting AAC to mp3 in debian squeeze
+  url = aac2mp3-squeeze

@@ -1,0 +1,32 @@
+<p>I was up until 6 AM working on the pmt2 project last night. The good news is
+wireless signal strength functionality is working. dtx0 helped provide some
+sanity checks and an extra set of eyes to look through code, so thanks dtx0!<p>
+<!-- break -->
+<p>I see the next steps as being:<br>
+<ul>
+	<li>audio functionality<br>
+	<ul>
+		<li>getting a simple tone to play</li>
+		<li>adding in configurable functions to adjust device, sample 
+		rates, etc...</li>
+	</ul>
+	<li>threading:<br>
+		<ol>
+			<li>the main program thread</li>
+			<li>the wireless signal strength monitor</li>
+			<li>the tone generator</li>
+			<li>the user interface (probably ncurses-based)</li>
+		</ol>
+	</li>
+	<li>user interface (probably ncurses)<br>
+	<ul>
+		<li>"graphical" signal strength indicator</li>
+		<li>audio configuration</li>
+		<li>NIC specification</li>
+	</ul></li>
+</ul></p>
+<p>As you can see, there's a lot of stuff to still be done but I'm learning a
+lot for this being such a pointless project otherwise. The project now has
+<a href="http://sourceforge.net/projects/thepmt2" alt="thepmt2">a sourceforge
+project page</a> up featuring a git repo.</p>
+

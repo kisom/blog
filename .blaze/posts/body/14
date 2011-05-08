@@ -1,0 +1,40 @@
+<p>I've seen several account requests for using git, so I figured I'd cover
+how to get it working in your home space in case you're not familiar. I'm
+assuming you know what <a href="http://git-scm.com">Git</a> is.</p>
+<!-- break -->
+<p>The first thing you need to know is your directory structure. If, like
+most people that I know, you have a git repo for each project, you will want
+to create an appropriate directory structure and create Git repos in each
+project foldier. Since that's what I do, that's what I'll cover. Log into
+devio.us, and you'll do something like this:<br><tt>
+&lt;wolfman: ~> $ mkdir -p src/arduino/libraries/ds1307<br>
+&lt;wolfman: ~> $ cd src/arduino/libraries/ds1307<br> 
+&lt;wolfman: ~/src/arduino/libraries/ds1307> $ git --bare init<br>
+Initialized empty Git repository in /home/kisom/src/arduino/libraries/ds1307/<br>
+&lt;wolfman: ~/src/arduino/libraries/ds1307> $ </tt><br><br><br>
+</p>
+<p>Now on your computer, go to your git repo and issue the following:<br>
+<tt>
+kisom@freeside:~$ cd src/arduino/libraries/DS1307<br>
+kisom@freeside:~/src/arduino/libraries/DS1307$ git remote add devious 
+ssh://devio.us/home/kisom/src/arduino/libraries/ds1307<br>
+kisom@freeside:~/src/arduino/libraries/DS1307$ git push origin master<br>
+Counting objects: 11, done.<br>
+Compressing objects: 100% (11/11), done.<br>
+Writing objects: 100% (11/11), 12.74 KiB, done.<br>
+Total 11 (delta 0), reused 0 (delta 0)<br>
+kisom@freeside:~/src/arduino/libraries/DS1307$<br>
+</tt>
+</p>
+<p>Now you have a git repo set up in your home dir. You could for instance 
+go to your git repo and do the following to check:<br>
+<tt>
+<wolfman: ~/src/arduino/libraries/ds1307> $ git status<br>
+# On branch master<br>
+nothing to commit (working directory clean)<br>
+<wolfman: ~/src/arduino/libraries/ds1307> $ <br>
+</tt>
+<br><br>
+<strong>And there was much rejoicing...</strong></p>
+
+

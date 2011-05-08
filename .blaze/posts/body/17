@@ -1,0 +1,20 @@
+<p>Compiling source navigator under Ubuntu 10.04 is fairly easy once you
+get the dependencies down. Grab the source from 
+<a href="http://sourcenav.sourceforge.net/">the sourceforge page</a>.
+The dependencies you need are:<br>
+<tt>
+<pre>
+	tk tklib libx11-dev libxmu-dev libxmu-headers libxt-dev libtool
+</pre>
+</tt>
+Of course you also need build-essential. Then a quick
+<tt>
+<pre>
+./configure --prefix=/opt/source-nav
+make
+sudo make install
+</pre>
+</tt>
+should do the trick.</p>
+
+

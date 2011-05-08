@@ -1,0 +1,46 @@
+<p>Hello, world. I am dumb.</p>
+
+<p>Okay, so that last statement may not make sense to you. kisom... dumb?
+What nonsense is this? (Or to quote my man Mr. T, quit your jibber-jabber, 
+fool!) Well, have a seat, and I'll tell you a tale. Believe
+me, it's true. You I can save, but for me it's too late.</p>
+<!-- break -->
+
+<p>It all started at a DC303 meeting (defcon 303). The presentation was on
+wireless triangulation using two laptops, but I and another attendee
+got on the subject of the wireless theremin as featured in this Linux Journal
+<a href="http://www.linuxjournal.com/article/6597" alt="Linux Journal: The 
+Poor Man's Theremin">article</a>. Try as we might, we couldn't get it to work.
+Looking at the code, it was kind of messy for being as little code as it was,
+and relied on a C program coupled with a shell script. It also wouldn't
+output sound, which I blame on the convoluted state of audio in the current
+linux distribution. I thought I could do better, and came up with a Grand
+Scheme (not like R5RS scheme, unfortunately). I would write The Poor Man's
+Theremin 2.0, featuring threads (a signal monitor, a tone generator, and 
+possibly an output display) and all contained in C, no need for shell scripts.
+Sounds awesome, right?</p>
+<p>Well, I got home and started working on it. I yum installed (yes, I'm using
+Fedora, want to make something of it?) the portaudio and wireless-tool
+libraries, wrote a quick portaudio initializer to test the library and moved
+on to writing a quick signal strength snarfer. That, children, is when things
+turned ugly. My code just would not compile. I got all kinds of errors in
+if.h and wireless.h. Since I consider myself a hacker, I decided to roll my
+sleeves up and figure out what was wrong.</p>
+<p>I first turned to The Google Machine. However, it turns out most people
+aren't writing custom wireless applications using the wireless-tools headers,
+and I couldn't find much of anything there. I even involved kismet, you
+know, to look through the source, but that ended up being messy. Two hours
+later, I finally download the wireless-tools.29.tar.gz, unpack it, and start
+browsing. Two minutes later, I find iwlib.h in the directory. I thought
+briefly to throw it in my project folder, but wait - what if wireless-tools
+gets updated? I should find a standard library. So then this happens:<br>
+<br>
+<tt>
+&lt;straylight: ~> $ find /usr/include -name iwlib.h<br>
+/usr/include/iwlib.h<br>
+</tt><br>
+You know, it was there the whole time, laughing at my pitiful mortal efforts
+to interface with wireless. I replaced the stack of #includes in my code by
+now, and it compiles cleanly. Whaddaya know? I'm dumb.</p>
+
+

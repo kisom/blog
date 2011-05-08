@@ -1,0 +1,57 @@
+
+[github](https://www.github.com) is a very useful service but very limiting
+for private repositories with collaborators. there are a few things you need
+to do differently, and a remote repo shouldn't be used for a work environment.
+
+<!-- break -->
+
+the basic requirements are
+* a locally-hosted repo with code and a committed working tree
+* a place to store the remote repo accessible via ssh
+
+the first thing we need to do is to make sure that if it isn't already,
+the local repo should be committed and clean.    
+`$ git commit -a`
+
+now we need to set up our remote end. if you are setting up the remote end on
+a remote server, go ahead and ssh into it. next, make the directory to store
+the repo in. a standard naming convention is to name the remote end as
+`$repo.git`. For example, if your project is named `woofs` and you are setting
+it up in /git/kyle, you would issue:    
+`mkdir /git/kyle/woofs.git`    
+
+now change your
+working directory to the repo dir. the next thing to do is to create a bare
+repo in this directory:    
+`$ git init --bare`    
+
+now, you need to make sure the permissions are set up properly. assuming the
+project belongs to the woofs group and using the same directory structure as 
+above, you could do something along the lines of    
+	$ chgrp -R woofs /git/kyle/woofs.git    
+	$ chmod -R g+w /git/kyle/woofs.git
+
+now you can log off the server if you are on a remote system.
+
+for your local repo, change your working directory to it.
+	$ cd ~/code/woofs
+
+add your remote repo -    
+* for a remote server: `$ git remote add origin ssh://remote_server/git/kyle/woofs.git`    
+* for a local server: `$ git remote add origin /git/kyle/woofs`    
+
+now push changes:
+	$ git push origin master
+
+at this point, you should be able to just issue a `git push` from now.
+
+your collaborators (or you on a different machine) should be able to    
+* for a remote server: `$ git clone ssh://remote_server/git/kyle/woofs.git`    
+* for a local path: `$ git clone /git/kyle/woofs.git`
+
+obviously you need to have proper unix permissions, like groups and user
+accounts on the remote server. it's easiest to set up ssh keys but that's just
+a convenience thing.
+
+that's all there is to it.
+

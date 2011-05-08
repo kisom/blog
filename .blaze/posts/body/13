@@ -1,0 +1,22 @@
+<p>It may not sound feasible, but I currently use tmux as my IDE. Getting it
+running under Fedora wasn't as simple as <tt>sudo yum install tmux</tt>, but
+it was almost that easy. Instead, install <tt>libevent-devel</tt>, download
+the <a href="http://tmux.sourceforge.net/" alt="tmux.sourceforge.net">tmux
+source code</a>, and build it normally.</p>
+<!-- break -->
+<p>I found <a href="http://www.dayid.org/os/notes/tm.html"
+alt="dayid's tmux cheat sheet">dayid's tmux cheat sheet</a> pretty handy
+for getting everything set up.</p>
+<p>Basically, I start a new tmux session, split the screen vertically, and 
+then split one of the panes horizontally. My set up looks like this:<br>
+<img src="/blog/img/ide.jpg" width=480><br>
+</p>
+<p>The vertical pane on the left serves as my code editing window. I have
+my keys <a href="http://kisom.devio.us/etc/vimrc">remapped in vim</a> such that 
+control + p and control + n cycle through the files I have open when I do a 
+<tt>vim *</tt>. The top right pane is my git (or other version control) window, 
+and the bottom right pane is my make / code testing window. Sometimes I flip 
+sides, i.e. the vim session is on the right instead. <tt>^b o</tt> cycles 
+through sessions.</p>
+<!-- damn it feels good to be a hacker -->
+

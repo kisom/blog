@@ -1,0 +1,14 @@
+<p>By default, xterm uses the black-on-white colour scheme. Being of the
+old-school type, I like my xterm to use green-on-black. Here's how to do it:
+</p>
+<!-- break -->
+<p><tt>
+$ vi ~/.Xdefaults<br><br><br>
+~/.Xdefaults<br><br>
+XTerm*background:black<br>
+XTerm*foreground:green<br>
+XTerm*loginShell:true<br>
+<br><br><br>
+$ xrdb -load ~/.Xdefaults<br>
+</p>
+

@@ -1,0 +1,42 @@
+For a long time, building my personal site was painful, simply because I
+didn't need (or want) a large framework or dynamic content or anything
+fancy, just a few simple static pages. I was hand-writing them all, which
+meant that given how little I enjoyed doing that, pages weren't ever really
+getting updated and you can pretty much forget adding much in the way of new
+content. I decided to do something about this, and spent a week or two 
+writing [rawk](http://rawk.brokenlcd.net). 
+
+<!-- break -->
+
+rawk stands for 'rage against web frameworks' and what it does, in short, is
+take a tree of markdown files and converts them to html files, adding in
+headers, a site menu, and footers. [My homepage](http://www.kyleisom.net) was
+done in rawk, as are a number of my other personal sites. I envisioned being
+able to quickly add in project documentation or update project pages on my
+homepage.
+
+As it stands now, rawk is just under 90 lines of actual code (under around 140
+lines when you count comments and whitespace). Being as it is a fairly simple
+bit of code, mostly some cats wrapped in seds and greps, it does have a few 
+limitations, namely:
+
+* the way rawk handles links could be improved,
+* the site-menu appears even when there is only the index file, and
+* no markdown parser is supplied with rawk, although not-so-subtle hints are 
+made for [smu](http://s01.de/~tox/index.cgi/proj_smu).
+
+I've got to sit down and tackle these problems, as well as look into possibly
+extending rawk:
+
+* image gallery generation (convert + templates + sed magic)
+* blogging system (replace blaze!?)
+
+Those are the two major things that I would like to see, and those might be
+pushing the bounds of posix shell - an image gallery would almost certainly
+require the use of an external tool like ImageMagick).
+
+Anyways, it's useful for me. Maybe you'll find it useful as well. The homepage
+has all the information about rawk.
+
+* [rawk's homepage](http://rawk.brokenlcd.net)
+
